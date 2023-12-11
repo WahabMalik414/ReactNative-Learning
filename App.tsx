@@ -1,117 +1,103 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+import {ScrollView, Image, Text, Button, StyleSheet, View} from 'react-native';
+import {Alert} from 'react-native';
+import MyButton from './src/button';
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.section}>
+        <Image
+          source={require('./assets/photo.png')}
+          style={styles.profileImage}
+        />
+        <Text style={styles.name}>Malik Abdul Wahab</Text>
+        <Text style={styles.bio}>
+          Full stack developer with a passion for exploring new technologies!
+        </Text>
+      </View>
+      <View style={styles.section}>
+        <Text style={styles.info}>MS Cyber Security from PIEAS</Text>
+        <Text style={styles.info}>Computer Engineering from FAST</Text>
+      </View>
+      <View style={styles.section}>
+        <Text style={styles.bio}>
+          I'm a tech enthusiast with a love for gaming, book reading, and
+          fullstack development. When I'm not leveling up in my favorite games,
+          I'm immersed in gaming and book reading. As a Fullstack Developer, I
+          enjoy exploring new technologies and frameworks. Curiosity is my
+          driving force, and I'm always eager to learn and tackle new
+          challenges. In a nutshell, I find joy in the blend of gaming, book
+          adventures, coding, and satisfying my curiosity. I am a coffee lover
+          too!
+        </Text>
+      </View>
+      <View style={styles.ButtonSection}>
+        <MyButton
+          title="Portfolio"
+          onPress={() => Alert.alert('Link to your portfolio goes here')}
+        />
+
+        <MyButton
+          title="Resume"
+          onPress={() => Alert.alert('Link to your resume goes here')}
+        />
+
+        <MyButton
+          title="Contact Me"
+          onPress={() => Alert.alert('Contact functionality goes here')}
+        />
+      </View>
+    </ScrollView>
   );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+};
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flexGrow: 1,
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: '#4ec2f4',
   },
-  sectionTitle: {
+  section: {
+    width: 350,
+    marginBottom: 20,
+    backgroundColor: '#a1ddf7',
+    padding: 20,
+    borderRadius: 20,
+  },
+  ButtonSection: {
+    width: 350,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+    backgroundColor: '#96d2eb',
+    padding: 20,
+    borderRadius: 20,
+  },
+  profileImage: {
+    alignSelf: 'center',
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    marginBottom: 20,
+  },
+  name: {
     fontSize: 24,
-    fontWeight: '600',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontFamily: 'Roboto',
+    marginBottom: 10,
   },
-  sectionDescription: {
-    marginTop: 8,
+  info: {
     fontSize: 18,
-    fontWeight: '400',
+    fontFamily: 'Open Sans',
+    marginBottom: 5,
+    textAlign: 'center',
   },
-  highlight: {
-    fontWeight: '700',
+  bio: {
+    fontSize: 18,
+    fontFamily: 'Open Sans',
+    textAlign: 'center',
   },
 });
 
