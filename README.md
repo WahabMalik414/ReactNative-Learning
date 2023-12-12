@@ -7,13 +7,15 @@ Scrollable landing view includes three pressables at bottom with navigation to g
 
 ## Github link
 Clicking on github link on homepage takes the user to my github account link.
+
 ![Alt text](git.png)
 
 ### Projects
 Clicking on projects button takes the user to projects view. 
+
 ![Alt text](projects.png)
-npm run android
 
 # Contact
 Contact me button takes the user to my contact details view.
+
 ![Alt text](contact.png)
