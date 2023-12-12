@@ -1,104 +1,33 @@
 import React from 'react';
-import {ScrollView, Image, Text, Button, StyleSheet, View} from 'react-native';
-import {Alert} from 'react-native';
-import MyButton from './src/button';
-const App = () => {
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import ContactUs from './contact';
+import Project from './projects';
+import Landing from './Landing.tsx';
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.section}>
-        <Image
-          source={require('./assets/photo.png')}
-          style={styles.profileImage}
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="main">
+        <Stack.Screen
+          name="main"
+          options={{headerShown: false}}
+          component={Landing}
         />
-        <Text style={styles.name}>Malik Abdul Wahab</Text>
-        <Text style={styles.bio}>
-          Full stack developer with a passion for exploring new technologies!
-        </Text>
-      </View>
-      <View style={styles.section}>
-        <Text style={styles.info}>MS Cyber Security from PIEAS</Text>
-        <Text style={styles.info}>Computer Engineering from FAST</Text>
-      </View>
-      <View style={styles.section}>
-        <Text style={styles.bio}>
-          I'm a tech enthusiast with a love for gaming, book reading, and
-          fullstack development. When I'm not leveling up in my favorite games,
-          I'm immersed in gaming and book reading. As a Fullstack Developer, I
-          enjoy exploring new technologies and frameworks. Curiosity is my
-          driving force, and I'm always eager to learn and tackle new
-          challenges. In a nutshell, I find joy in the blend of gaming, book
-          adventures, coding, and satisfying my curiosity. I am a coffee lover
-          too!
-        </Text>
-      </View>
-      <View style={styles.ButtonSection}>
-        <MyButton
-          title="Portfolio"
-          onPress={() => Alert.alert('Link to your portfolio goes here')}
+        <Stack.Screen
+          name="contactus"
+          options={{headerShown: false}}
+          component={ContactUs}
         />
-
-        <MyButton
-          title="Resume"
-          onPress={() => Alert.alert('Link to your resume goes here')}
+        <Stack.Screen
+          name="projects"
+          options={{headerShown: false}}
+          component={Project}
         />
-
-        <MyButton
-          title="Contact Me"
-          onPress={() => Alert.alert('Contact functionality goes here')}
-        />
-      </View>
-    </ScrollView>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    alignItems: 'center',
-    padding: 10,
-    backgroundColor: '#4ec2f4',
-  },
-  section: {
-    width: 350,
-    marginBottom: 20,
-    backgroundColor: '#a1ddf7',
-    padding: 20,
-    borderRadius: 20,
-  },
-  ButtonSection: {
-    width: 350,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 20,
-    backgroundColor: '#96d2eb',
-    padding: 20,
-    borderRadius: 20,
-  },
-  profileImage: {
-    alignSelf: 'center',
-    width: 150,
-    height: 150,
-    borderRadius: 75,
-    marginBottom: 20,
-  },
-  name: {
-    fontSize: 24,
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontFamily: 'Roboto',
-    marginBottom: 10,
-  },
-  info: {
-    fontSize: 18,
-    fontFamily: 'Open Sans',
-    marginBottom: 5,
-    textAlign: 'center',
-  },
-  bio: {
-    fontSize: 18,
-    fontFamily: 'Open Sans',
-    textAlign: 'center',
-  },
-});
+}
 
 export default App;

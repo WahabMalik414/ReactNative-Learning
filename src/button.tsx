@@ -1,10 +1,15 @@
 import React from 'react';
 import {Text, StyleSheet, Pressable} from 'react-native';
 
-export default function Button(props: any) {
+export default function MyButton(props: any) {
   const {onPress, title} = props;
   return (
-    <Pressable style={styles.button} onPress={onPress}>
+    <Pressable
+      style={({pressed}) => [
+        styles.button,
+        {backgroundColor: pressed ? '#007bff' : '#09a4e7'},
+      ]}
+      onPress={onPress}>
       <Text style={styles.text}>{title}</Text>
     </Pressable>
   );
@@ -13,7 +18,6 @@ export default function Button(props: any) {
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    backgroundColor: '#09a4e7',
     justifyContent: 'center',
     borderRadius: 10,
     padding: 6,
