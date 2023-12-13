@@ -1,6 +1,6 @@
 import React from 'react';
 import {ScrollView, Image, Text, StyleSheet, View, Linking} from 'react-native';
-import MyButton from './src/button';
+import MyButton from './Button';
 
 export default function Landing({navigation}: any) {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, StyleSheet, View, Linking, ScrollView} from 'react-native';
-import MyButton from './src/button';
+import MyButton from './Button';
 
 const Project = ({navigation}: any) => {
   return (

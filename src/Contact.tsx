@@ -1,7 +1,7 @@
 import React from 'react';
 import {Alert} from 'react-native';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
-import MyButton from './src/button';
+import MyButton from './Button';
 const ContactUs = ({navigation}: any) => {
   return (
     <View style={styles.container}>
